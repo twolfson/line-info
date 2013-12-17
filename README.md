@@ -44,10 +44,32 @@ lineInfo({
 ```
 
 ## Documentation
-_(Coming soon)_
+`line-info` exposes a single function via its `module.exports`
 
-## Examples
-_(Coming soon)_
+### `lineInfo(params)`
+Collect info about a line given a set of shell completion parameters.
+
+**Input**
+
+- params `Object` - Container for additional parameters
+    - line `String` - Input to analyze (e.g. `npm publish`)
+    - cursor `Number` - Position of cursor within string (e.g. `ec|ho hai` has a `cursor` of 2)
+
+**Returned**
+
+- retObj `Object` - Container for information
+    - line `Object` - Container for `params.line` information
+        - value `String` - Original input from `params.line`
+        - index `Number` - Original cursor position from `params.cursor`
+        - partialLeft `String`- Left section of line before cursor
+        - partialRight `String`- Right section of line after cursor
+    - words `Object` - Information about words in `line`
+        - value `String[]` - Array of words in the `params.line`
+        - index `Number` - Index of word containing cursor
+        - partialLeft `String[]` - Array of words from `retObj.line.partialLeft` (e.g. `['npm', 'pub']` in `npm pub|lish`)
+            - Word containing `cursor` will be broken up here
+        - partialRight `String[]` - Array of words from `retObj.line.partialRight` (e.g. `['lish']` in `npm pub|lish`)
+            - Word containing `cursor` will be broken up here
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
