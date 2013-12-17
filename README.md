@@ -61,8 +61,8 @@ Collect info about a line given a set of shell completion parameters.
     - line `Object` - Container for `params.line` information
         - value `String` - Original input from `params.line`
         - index `Number` - Original cursor position from `params.cursor`
-        - partialLeft `String`- Left section of line before cursor
-        - partialRight `String`- Right section of line after cursor
+        - partialLeft `String`- Left section of line before cursor (e.g. `'npm pub'` in `npm pub|lish`)
+        - partialRight `String`- Right section of line after cursor (e.g. `'lish'` in `npm pub|lish`)
     - words `Object` - Information about words in `line`
         - value `String[]` - Array of words in the `params.line`
         - index `Number` - Index of word containing cursor
@@ -70,6 +70,11 @@ Collect info about a line given a set of shell completion parameters.
             - Word containing `cursor` will be broken up here
         - partialRight `String[]` - Array of words from `retObj.line.partialRight` (e.g. `['lish']` in `npm pub|lish`)
             - Word containing `cursor` will be broken up here
+    - word `Object` - Information about word containing `cursor`
+        - value `String` - Word containing `cursor`
+        - index `Number` - Position of `cursor` within word
+        - partialLeft `String` - Left section of word before cursor (e.g. `'pub'` in `npm pub|lish`)
+        - partialRight `String` - Right section of word after cursor (e.g. `'lish'` in `npm pub|lish`)
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
