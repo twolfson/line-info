@@ -1,7 +1,7 @@
 {
   "name": "line-info",
   "description": "Gather information about a line based on content and cursor position",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/twolfson/line-info",
   "author": {
     "name": "Todd Wolfson",
