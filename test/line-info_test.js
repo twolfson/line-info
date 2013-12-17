@@ -57,7 +57,27 @@ describe('A line with no right content', function () {
     });
 
     it('provides right content info', function () {
-      assert.deepEqual(this.actual.words.partialRight, []);
+      assert.deepEqual(this.actual.words.partialRight, ['']);
+      assert.strictEqual(this.actual.word.partialRight, '');
+    });
+  });
+});
+
+describe('A line with trailing whitespace', function () {
+  before(function () {
+    this.params = {
+      line: 'npm publish ',
+      cursor: 'npm publish'.length
+    };
+  });
+
+  describe('when analyzed', function () {
+    before(function () {
+      this.actual = lineInfo(this.params);
+    });
+
+    it('provides considers whitespace as an empty word', function () {
+      assert.deepEqual(this.actual.words.partialRight, ['', '']);
       assert.strictEqual(this.actual.word.partialRight, '');
     });
   });
