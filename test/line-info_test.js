@@ -1,10 +1,11 @@
+var assert = require('assert');
 var lineInfo = require('../');
 
 describe('A line', function () {
   before(function () {
     this.params = {
       line: 'git checkoutworld',
-      cursor: 12
+      cursor: 'git checkout'.length
     };
   });
 
@@ -13,26 +14,30 @@ describe('A line', function () {
       this.actual = lineInfo(this.params);
     });
 
-    it('matches expected content', function () {
-      assert.deepEqual(this.actual, {
-        line: {
-          value: 'git checkoutworld',
-          index: 12,
-          partialLeft: 'git checkout',
-          partialRight: 'git world',
-        },
-        words: {
-          value: ['git', 'checkoutworld'],
-          index: 1,
-          partialLeft: ['git', 'checkout'],
-          partialRight: ['world']
-        },
-        word: {
-          value: 'checkoutworld',
-          index: 8,
-          partialLeft: 'checkout',
-          partialRight: 'world'
-        }
+    it('matches expected `line` content', function () {
+      assert.deepEqual(this.actual.line, {
+        value: 'git checkoutworld',
+        index: 'git checkout'.length,
+        partialLeft: 'git checkout',
+        partialRight: 'world'
+      });
+    });
+
+    it.skip('matches expeted `words` content', function () {
+      assert.deepEqual(this.actual.words, {
+        value: ['git', 'checkoutworld'],
+        index: 1,
+        partialLeft: ['git', 'checkout'],
+        partialRight: ['world']
+      });
+    });
+
+    it.skip('matches expeted `words` content', function () {
+      assert.deepEqual(this.actual.word, {
+        value: 'checkoutworld',
+        index: 'checkout'.length,
+        partialLeft: 'checkout',
+        partialRight: 'world'
       });
     });
   });
