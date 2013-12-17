@@ -32,7 +32,7 @@ describe('A line', function () {
       });
     });
 
-    it.skip('matches expeted `words` content', function () {
+    it('matches expeted `words` content', function () {
       assert.deepEqual(this.actual.word, {
         value: 'checkoutworld',
         index: 'checkout'.length,
