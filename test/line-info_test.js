@@ -23,7 +23,7 @@ describe('A line', function () {
       });
     });
 
-    it.skip('matches expeted `words` content', function () {
+    it('matches expeted `words` content', function () {
       assert.deepEqual(this.actual.words, {
         value: ['git', 'checkoutworld'],
         index: 1,
