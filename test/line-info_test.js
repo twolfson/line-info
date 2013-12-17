@@ -57,7 +57,8 @@ describe('A line with no right content', function () {
     });
 
     it('provides right content info', function () {
-
+      assert.deepEqual(this.actual.words.partialRight, []);
+      assert.strictEqual(this.actual.word.partialRight, '');
     });
   });
 });
