@@ -21,19 +21,19 @@ lineInfo({
 {
   line: {
     value: 'git checkoutworld',
-    index: 12,
+    index: 12, // 'git checkout'.length
     partialLeft: 'git checkout',
     partialRight: 'world'
   },
   words: {
     value: ['git', 'checkoutworld'],
-    index: 1,
+    index: 1, // Position of 'checkoutworld'
     partialLeft: ['git', 'checkout'],
     partialRight: ['world']
   },
   word: {
     value: 'checkoutworld',
-    index: 8,
+    index: 8, // 'checkout'.length
     partialLeft: 'checkout',
     partialRight: 'world'
   }
