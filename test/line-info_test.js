@@ -1,11 +1,39 @@
-var line_info = require('../');
+var lineInfo = require('../');
 
-describe('line-info', function () {
+describe('A line', function () {
   before(function () {
-
+    this.params = {
+      line: 'git checkoutworld',
+      cursor: 12
+    };
   });
 
-  it('', function () {
+  describe('when analyzed', function () {
+    before(function () {
+      this.actual = lineInfo(this.params);
+    });
 
+    it('matches expected content', function () {
+      assert.deepEqual(this.actual, {
+        line: {
+          value: 'git checkoutworld',
+          index: 12,
+          partialLeft: 'git checkout',
+          partialRight: 'git world',
+        },
+        words: {
+          value: ['git', 'checkoutworld'],
+          index: 1,
+          partialLeft: ['git', 'checkout'],
+          partialRight: ['world']
+        },
+        word: {
+          value: 'checkoutworld',
+          index: 8,
+          partialLeft: 'checkout',
+          partialRight: 'world'
+        }
+      });
+    });
   });
 });
