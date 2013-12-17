@@ -42,3 +42,22 @@ describe('A line', function () {
     });
   });
 });
+
+describe('A line with no right content', function () {
+  before(function () {
+    this.params = {
+      line: 'npm publish',
+      cursor: 'npm publish'.length
+    };
+  });
+
+  describe('when analyzed', function () {
+    before(function () {
+      this.actual = lineInfo(this.params);
+    });
+
+    it('provides right content info', function () {
+
+    });
+  });
+});
