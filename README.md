@@ -11,8 +11,36 @@ This was built as part of [commander-completion][], a shell completion library f
 Install the module with: `npm install line-info`
 
 ```javascript
-var line_info = require('line-info');
-line_info.awesome(); // "awesome"
+var lineInfo = require('line-info');
+lineInfo({
+  // git checkout|world
+  line: 'git checkoutworld',
+  cursor: 12
+});
+/* Result is
+{
+  line: {
+    value: 'git checkoutworld',
+    index: 12,
+    partialLeft: 'git checkout',
+    partialRight: 'world'
+  },
+  words: {
+    value: ['git', 'checkoutworld'],
+    index: 1,
+    partialLeft: ['git', 'checkout'],
+    partialRight: ['world']
+  },
+  word: {
+    value: 'checkoutworld',
+    index: 8,
+    partialLeft: 'checkout',
+    partialRight: 'world'
+  }
+}
+*/
+
+// Accessed via `result.word.partialLeft`; // 'checkout'
 ```
 
 ## Documentation
