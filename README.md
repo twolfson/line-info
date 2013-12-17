@@ -1,6 +1,11 @@
 # line-info [![Build status](https://travis-ci.org/twolfson/line-info.png?branch=master)](https://travis-ci.org/twolfson/line-info)
 
-Gather information about a line based on content and cursor position
+Gather information about a line based on content and cursor position.
+
+This was built as part of [commander-completion][], a shell completion library for [commander.js][].
+
+[commander-completion]: https://github.com/twolfson/commander-completion
+[commander.js]: https://github.com/visionmedia/commander.js
 
 ## Getting Started
 Install the module with: `npm install line-info`
